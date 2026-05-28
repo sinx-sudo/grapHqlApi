@@ -21,3 +21,24 @@ export const createUser = async (data: {
     data,
   });
 };
+export const updateUser = async(data:{
+    name: string;
+    phone: string;
+    address?: string
+},    id: string
+)=>{
+     const existing = await prisma.user.findFirst({where:{name:data.name,NOT:{id:id}}});
+    if(existing) {
+    throw new Error("User already exists");
+  };
+  return prisma.user.update({
+    data,
+    where:{id:id}
+  });
+}
+
+export const deleteUser = async (id:string)=>{
+    const user = await prisma.user.findUnique({where:{id}});
+    if(!user){ throw new Error("user is not found")}
+    return prisma.user.delete({where:{id:id}});
+}

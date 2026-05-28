@@ -10,11 +10,28 @@ export const userTypeDefs = `#graphql
     users: [User]
   }
 
+
+  input UpdateUserInput {
+    name: String!
+    phone: String!
+    address: String
+    }
+
+    
   type Mutation {
     createUser(
       name: String!
       phone: String!
       address: String
     ): User
-  }
+
+    updateUser(
+        id: String!
+        data: UpdateUserInput!
+    ): User
+
+    deleteUser(
+    id: String
+    ):User
+    }
 `;

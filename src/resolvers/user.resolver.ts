@@ -46,5 +46,18 @@ export const userResolvers = {
     ) => {
       return userService.createUser(args);
     },
+    updateUser: async (_: any, args: {
+      id: string;
+      data: {
+        name: string;
+        phone: string;
+        address?: string;
+      };
+    }) => {
+      return userService.updateUser(args.data, args.id);
+    },
+    deleteUser: async (_: any, args: { id: string }) => {
+      return userService.deleteUser(args.id);
+    }
   },
 };
