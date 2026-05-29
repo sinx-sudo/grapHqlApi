@@ -17,4 +17,14 @@ model user{
   name String
   phone String
   address String?
+  depId String
+  dep department @relation(fields: [depId],references: [id])
+}
+
+model department{
+  id String @id @default(uuid())
+  name String
+  note String?
+
+  userId user[]
 }

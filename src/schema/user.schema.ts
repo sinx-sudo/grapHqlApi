@@ -4,10 +4,12 @@ export const userTypeDefs = `#graphql
     name: String
     phone: String
     address: String
+    depId: String
   }
 
   type Query {
     users: [User]
+    
   }
 
 
@@ -15,6 +17,7 @@ export const userTypeDefs = `#graphql
     name: String!
     phone: String!
     address: String
+    depId: String
     }
 
     
@@ -23,6 +26,7 @@ export const userTypeDefs = `#graphql
       name: String!
       phone: String!
       address: String
+      depId: String
     ): User
 
     updateUser(

@@ -31,7 +31,7 @@ import * as userService from "../services/user.service";
 export const userResolvers = {
   Query: {
     users: async () => {
-      return userService.getUsers();
+      return await userService.getUsers();
     },
   },
 
@@ -42,9 +42,10 @@ export const userResolvers = {
         name: string;
         phone: string;
         address?: string;
+        depId: string
       }
     ) => {
-      return userService.createUser(args);
+      return await userService.createUser(args);
     },
     updateUser: async (_: any, args: {
       id: string;
@@ -52,12 +53,13 @@ export const userResolvers = {
         name: string;
         phone: string;
         address?: string;
+        depId: string
       };
     }) => {
       return userService.updateUser(args.data, args.id);
     },
     deleteUser: async (_: any, args: { id: string }) => {
-      return userService.deleteUser(args.id);
+      return await userService.deleteUser(args.id);
     }
   },
 };

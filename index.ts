@@ -4,7 +4,8 @@ import { expressMiddleware } from "@as-integrations/express5";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-import { typeDefs, resolvers } from "./src/index";
+import {resolvers}  from "./src/resolvers/index";
+import  {typeDefs}  from "./src/schema/index";
 
 async function startServer() {
   const app = express();
@@ -18,7 +19,16 @@ async function startServer() {
 
   app.use(
     "/graphql",
-    cors(),
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "http://localhost:5173",
+      ],
+
+      methods: ["GET", "POST"],
+
+      credentials: true,
+    }),
     bodyParser.json(),
     expressMiddleware(server)
   );
