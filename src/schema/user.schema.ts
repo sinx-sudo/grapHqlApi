@@ -4,12 +4,22 @@ export const userTypeDefs = `#graphql
     name: String
     phone: String
     address: String
+
     depId: String
+    department: Department
+  }
+    
+   type Department {
+    id: String
+    name: String
+    note: String
+
+    users: [User]
   }
 
   type Query {
     users: [User]
-    
+    department: [Department]
   }
 
 

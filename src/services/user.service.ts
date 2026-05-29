@@ -1,7 +1,9 @@
 import { prisma } from "../../lib/prisma";
 
 export const getUsers = async () => {
-  return await prisma.user.findMany();
+  return await prisma.user.findMany({include:{
+    department:true //ต้องตรงกับ schema
+  }});
   //    return prisma.$queryRaw`
   //     SELECT * FROM "User"
   //     ORDER BY id DESC
