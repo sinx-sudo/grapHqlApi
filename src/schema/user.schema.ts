@@ -19,6 +19,7 @@ export const userTypeDefs = `#graphql
 
   type Query {
     users: [User]
+    userByid(id:String!): User
     department: [Department]
   }
 

@@ -4,15 +4,17 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.ts",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "dev": "tsx watch src/index.ts",
+    "start": "node index.ts"
   },
   "dependencies": {
+    "@apollo/server": "^5.5.1",
     "@as-integrations/express5": "^1.1.2",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
@@ -132,7 +134,6 @@
     "mysql2": "^3.15.3",
     "named-placeholders": "^1.1.6",
     "negotiator": "^1.0.0",
-    "nodemon": "^3.1.14",
     "normalize-path": "^3.0.0",
     "object-assign": "^4.1.1",
     "object-inspect": "^1.13.4",
@@ -202,12 +203,9 @@
     "to-regex-range": "^5.0.1",
     "toidentifier": "^1.0.1",
     "touch": "^3.1.1",
-    "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
-    "tsx": "^4.22.3",
     "type-is": "^2.1.0",
     "typed-array-buffer": "^1.0.3",
-    "typescript": "^6.0.3",
     "undefsafe": "^2.0.5",
     "undici-types": "^7.24.6",
     "unpipe": "^1.0.0",
@@ -226,6 +224,10 @@
     "@types/body-parser": "^1.19.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "prisma": "^7.8.0"
+    "nodemon": "^3.1.14",
+    "prisma": "^7.8.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }
